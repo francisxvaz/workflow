@@ -1,6 +1,9 @@
 "use client";
 import { useState } from "react";
-import { useQuery } from "react-query";
+import { useMutation, useQuery, useQueryClient } from "react-query";
+import { useRouter } from 'next/navigation'
+ 
+
 import {
   Select,
   SelectContent,
@@ -10,9 +13,20 @@ import {
 } from "@/components/ui/select";
 import { designCodeType, engineerType, pressureEquipmentType } from "..";
 import { Button } from "@/components/ui/button";
+import axios, { AxiosError } from "axios";
+import toast from "react-hot-toast";
+
+type JobProps = {
+  pe: string;
+  dc: string;
+  en: string;
+};
 
 export default function Home() {
   const [designCodes, setDesignCodes] = useState("");
+  const queryClient = useQueryClient();
+  const router = useRouter();
+  let commentToastId: string;
 
   const [pe, setpe] = useState("");
   const [dc, setdc] = useState("");
@@ -20,6 +34,25 @@ export default function Home() {
 
   const [showStepOne, setshowStepOne] = useState(true);
   const [showStepTwo, setshowStepTwo] = useState(false);
+
+  const { mutate } = useMutation(
+    async (data: JobProps) => {
+      return axios.post("http://localhost:3000/api/job",  data );
+    },
+    {
+      onSuccess: (data) => {
+        queryClient.invalidateQueries(["jobs"]);
+        toast.success("Added your job", { id: commentToastId });
+        router.push('/jobs', { scroll: false })
+      },
+      onError: (error) => {
+        console.log(error);
+        if (error instanceof AxiosError) {
+          toast.error(error?.response?.data.message, { id: commentToastId });
+        }
+      },
+    }
+  );
 
   function handlePEChange(pe: string) {
     setDesignCodes(
@@ -46,6 +79,14 @@ export default function Home() {
   function onStepTwoBackClick() {
     setshowStepOne(true);
     setshowStepTwo(false);
+  }
+
+  function submit()
+  {
+    commentToastId = toast.loading("Adding your job", {
+      id: commentToastId,
+    });
+    mutate({ pe, dc, en });
   }
 
   const { isLoading, error, data } = useQuery("alldata", () =>
@@ -143,10 +184,25 @@ export default function Home() {
       {showStepTwo ? (
         <div className="grid grid-cols-1 gap-10 bg-purple-500 p-10 rounded-lg">
           <div>
-            {peName.name} - {dcName.name} - {enName.name}
+            <div className="grid grid-cols-2 mb-5 font-bold gap-5">
+              <div className="text-white"> Pressure Equipment => </div>
+              {peName.name}
+            </div>
+            <div className="grid grid-cols-2 mb-5 font-bold gap-5">
+              <div className="text-white"> Design Code => </div>
+              {dcName.name}
+            </div>
+            <div className="grid grid-cols-2 mb-5 font-bold gap-5">
+              <div className="text-white"> Engineer => </div>
+              {enName.name}
+            </div>
+            
           </div>
-          <div className="flex justify-end">
-            <Button onClick={onStepTwoBackClick}>Back</Button>
+          <div className="flex justify-end gap-2">
+            <Button onClick={submit}>Submit</Button>
+            <Button onClick={onStepTwoBackClick} className="bg-gray-500">
+              Back
+            </Button>
           </div>
         </div>
       ) : (

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { RxSketchLogo, RxDashboard, RxPerson, RxPencil1 } from 'react-icons/rx';
 import { HiOutlineShoppingBag } from 'react-icons/hi';
 import { FiPenTool, FiSettings } from 'react-icons/fi';
+import { Toaster } from 'react-hot-toast';
 
 const Sidebar = ({ children }: {
     children: React.ReactNode
@@ -22,12 +23,12 @@ const Sidebar = ({ children }: {
               <RxDashboard size={20} />
             </div>
           </Link>
-          <Link href='/customers'>
+          <Link href='/engineer/'>
             <div className='bg-gray-100 hover:bg-gray-200 cursor-pointer my-4 p-3 rounded-lg inline-block'>
               <RxPerson size={20} />
             </div>
           </Link>
-          <Link href='/orders'>
+          <Link href='/jobs'>
             <div className='bg-gray-100 hover:bg-gray-200 cursor-pointer my-4 p-3 rounded-lg inline-block'>
               <HiOutlineShoppingBag size={20} />
             </div>
@@ -44,7 +45,7 @@ const Sidebar = ({ children }: {
           </Link>
         </div>
       </div>
-      <main className='ml-20 w-full'>{children}</main>
+      <main className='ml-20 w-full'> <Toaster />{children}</main>
     </div>
   );
 };

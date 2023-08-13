@@ -12,17 +12,35 @@ datasource db {
 
 model PressureEquipment {
   id          String        @id @default(cuid())
+  createdAt   DateTime      @default(now())
   name        String
   designCodes DesignCodes[]
+  jobs        Job[]
 }
+
 model DesignCodes {
-  id                String             @id @default(cuid())
-  name              String
-  PressureEquipment PressureEquipment @relation(fields: [pressureEquipmentId], references: [id])
+  id                  String            @id @default(cuid())
+  createdAt           DateTime          @default(now())
+  name                String
+  PressureEquipment   PressureEquipment @relation(fields: [pressureEquipmentId], references: [id])
   pressureEquipmentId String
+  jobs                Job[]
 }
 
 model Engineer {
-  id          String        @id @default(cuid())
-  name        String
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  name      String
+  jobs      Job[]
+}
+
+model Job {
+  id                  String            @id @default(cuid())
+  createdAt           DateTime          @default(now())
+  pressureEquipmentId String
+  pressureEquipment   PressureEquipment @relation(fields: [pressureEquipmentId], references: [id])
+  designCodeId        String
+  designCode          DesignCodes       @relation(fields: [designCodeId], references: [id])
+  engineerId          String
+  engineer            Engineer          @relation(fields: [engineerId], references: [id])
 }
