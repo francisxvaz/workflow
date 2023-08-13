@@ -21,7 +21,7 @@ export default function RootLayout({
       <body>
         <QueryClientProvider client={queryClient}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <Sidebar children={children} />
+            <Sidebar>{children}</Sidebar>
           </ThemeProvider>
         </QueryClientProvider>
       </body>

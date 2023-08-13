@@ -1,10 +1,10 @@
 import { PrismaClient } from "@prisma/client";
-import type { NextApiRequest, NextApiResponse } from "next";
+import type { NextApiResponse } from "next";
 import { NextResponse } from "next/server";
 
 const prisma = new PrismaClient();
 
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
+export async function GET(res: NextApiResponse) {
   //Return Design Codes
   try {
     const pes = await prisma.pressureEquipment.findMany();
