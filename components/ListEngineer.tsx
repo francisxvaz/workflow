@@ -53,8 +53,8 @@ export default function ListEngineer({ onDelete }: { onDelete: Function }) {
   }
 
   return (
-    <main className="flex min-h-screen flex-col bg-purple-100 items-center justify-between p-24">
-      <Table>
+    <>
+      <Table className="bg-purple-200 rounded-lg">
         <TableCaption>list of Engineers.</TableCaption>
         <TableHeader>
           <TableRow>
@@ -76,13 +76,6 @@ export default function ListEngineer({ onDelete }: { onDelete: Function }) {
           })}
         </TableBody>
       </Table>
-
-      <Link
-        href={"./engineer/add"}
-        className="border-1 bg-black text-white font-bold px-5"
-      >
-        Add
-      </Link>
-    </main>
+    </>
   );
 }
