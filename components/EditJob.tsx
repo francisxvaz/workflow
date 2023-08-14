@@ -59,7 +59,7 @@ export default function EditJob({jobid}: {jobid:string}) {
   function handlePEChange(pe: string) {
    
     setpe(pe);
-   
+    setdc("")
   }
 
   function handleDCChange(dc: string) {

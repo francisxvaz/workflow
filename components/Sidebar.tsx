@@ -28,6 +28,11 @@ const Sidebar = ({ children }: {
               <RxPerson size={20} />
             </div>
           </Link>
+          <Link href='/certificate'>
+            <div className='bg-gray-100 hover:bg-gray-200 cursor-pointer my-4 p-3 rounded-lg inline-block'>
+              <FiPenTool size={20} />
+            </div>
+          </Link>
           {/* <Link href='/jobs'>
             <div className='bg-gray-100 hover:bg-gray-200 cursor-pointer my-4 p-3 rounded-lg inline-block'>
               <HiOutlineShoppingBag size={20} />
@@ -38,11 +43,7 @@ const Sidebar = ({ children }: {
               <FiSettings size={20} />
             </div>
           </Link>
-          <Link href='/new'>
-            <div className='bg-gray-100 hover:bg-gray-200 cursor-pointer my-4 p-3 rounded-lg inline-block'>
-              <FiPenTool size={20} />
-            </div>
-          </Link> */}
+           */}
         </div>
       </div>
       <main className='ml-20 w-full'> <Toaster />{children}</main>
