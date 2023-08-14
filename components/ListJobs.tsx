@@ -10,17 +10,22 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { BiSolidTrash } from "react-icons/bi";
+import { BiNotepad, BiSolidTrash } from "react-icons/bi";
 import axios, { AxiosError } from "axios";
 import toast from "react-hot-toast";
 
-export default function ListJobs({ onDelete }: { onDelete: Function }) {
+export default function ListJobs({ onDelete, onEdit }: { onDelete: Function, onEdit: Function }) {
   const queryClient = useQueryClient();
   let jobToastId = "jobs";
 
   function onJobDelete(id: string) {
     mutate(id);
     onDelete();
+  }
+
+  function onJobEdit(id:string)
+  {
+    onEdit(id)
   }
 
   const { mutate } = useMutation(
@@ -70,10 +75,13 @@ export default function ListJobs({ onDelete }: { onDelete: Function }) {
               </TableCell>
               <TableCell className="font-bold">{j.designCode.name}</TableCell>
               <TableCell className="font-bold">{j.engineer.name}</TableCell>
-              <TableCell className="font-bold">
+              <TableCell className="font-bold flex gap-3">
                 <span className="text-red-500 hover:cursor-pointer">
                   <BiSolidTrash onClick={() => onJobDelete(j.id)} />
                 </span>
+                <span className="text-green-500 hover:cursor-pointer">
+                    <BiNotepad onClick={() => onJobEdit(j.id)} />
+                  </span>
               </TableCell>
             </TableRow>
           );
