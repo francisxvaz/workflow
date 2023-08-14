@@ -1,25 +1,27 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import ListEngineer from "@/components/ListEngineer";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
-import { useQuery } from "react-query";
 
 export default function page() {
-  const { isLoading, error, data } = useQuery("alldata", () =>
-    fetch("http://localhost:3000/api/all").then((res) => res.json())
-  );
+  const router = useRouter();
 
-  if (isLoading) return "Loading...";
-
-  if (error) return "An error has occurred: " + error.message;
+  function refresh() {
+    router.refresh();
+  }
 
   return (
     <main className="flex min-h-screen flex-col bg-purple-100 items-center justify-between p-24">
-      {data.ens.map((en) => {
-        return <div>{en.name}</div>;
-      })}
-      <Link href={'./engineer/add'} className="border-1 bg-black text-white font-bold px-5">Add</Link>
+      <h1 className="font-bold">ENGINEERS</h1>
+      <ListEngineer onDelete={refresh} />
+      <Link
+        href={"./engineer/add"}
+        className="border-1 bg-green-700 text-white font-bold rounded-md px-5 py-1"
+      >
+        Add
+      </Link>
     </main>
   );
 }

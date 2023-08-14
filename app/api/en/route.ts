@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 const prisma = new PrismaClient();
 
@@ -18,16 +18,14 @@ export async function GET(req: NextApiRequest, res: NextApiResponse) {
 }
 
 export async function POST(request: Request) {
-  const formData = await request.formData()
-  const name = formData.get('name')
-  const result = await prisma.pressureEquipment.create({data: {"name": name}});
+  const { name} = await request.json();
+  const result = await prisma.engineer.create({data: {"name": name}});
   return NextResponse.json({ result })
 }
 
-export async function DELETE(request: Request) {
-  const formData = await request.formData()
-  const id = formData.get('id')
-  const result = await prisma.pressureEquipment.delete({
+export async function DELETE(request: NextRequest) {
+  const id = request.nextUrl.searchParams.get('id')
+  const result = await prisma.engineer.delete({
     where: {id : String(id)}  
   });
   return NextResponse.json({ result })
