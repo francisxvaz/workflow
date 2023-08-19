@@ -30,7 +30,7 @@ export default function ListJobs({ onDelete, onEdit }: { onDelete: Function, onE
 
   const { mutate } = useMutation(
     async (id: string) => {
-      return axios.delete(`http://localhost:3000/api/job?id=${id}`);
+      return axios.delete(`/api/job?id=${id}`);
     },
     {
       onSuccess: (data) => {
@@ -48,7 +48,7 @@ export default function ListJobs({ onDelete, onEdit }: { onDelete: Function, onE
   );
 
   const { isLoading, error, data } = useQuery("jobs", () =>
-    fetch("http://localhost:3000/api/job").then((res) => res.json())
+    fetch("/api/job").then((res) => res.json())
   );
 
   if (isLoading) return "Loading...";

@@ -18,7 +18,7 @@ export default function ListEngineer({ onDelete }: { onDelete: Function }) {
   let engineerToastId = "engineer";
   const { mutate } = useMutation(
     async (id: string) => {
-      return axios.delete(`http://localhost:3000/api/en?id=${id}`);
+      return axios.delete(`/api/en?id=${id}`);
     },
     {
       onSuccess: (data) => {
@@ -36,7 +36,7 @@ export default function ListEngineer({ onDelete }: { onDelete: Function }) {
   );
 
   const { isLoading, error, data } = useQuery(["engineers"], () =>
-    fetch("http://localhost:3000/api/en").then((res) => res.json())
+    fetch("/api/en").then((res) => res.json())
   );
 
   const queryClient = useQueryClient();

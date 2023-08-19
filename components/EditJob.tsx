@@ -37,7 +37,7 @@ export default function EditJob({jobid}: {jobid:string}) {
 
   const { mutate } = useMutation(
     async (data: JobProps) => {
-      return axios.put("http://localhost:3000/api/job",  data );
+      return axios.put("/api/job",  data );
     },
     {
       onSuccess: (data) => {
@@ -94,7 +94,7 @@ export default function EditJob({jobid}: {jobid:string}) {
     const { isLoading, error, data } = useQuery(
       "job",
       async () => {
-        return axios.get(`http://localhost:3000/api/job?id=${jobid}`);
+        return axios.get(`/api/job?id=${jobid}`);
       },
       {
         onSuccess: (data) => {
@@ -114,7 +114,7 @@ export default function EditJob({jobid}: {jobid:string}) {
   getSelectedJob()
 
   const { isLoading, error, data } = useQuery("alldata", () =>
-    fetch("http://localhost:3000/api/all").then((res) => res.json())
+    fetch("/api/all").then((res) => res.json())
   );
 
   if (isLoading) return "Loading...";

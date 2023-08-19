@@ -36,7 +36,7 @@ export default function AddJob() {
 
   const { mutate } = useMutation(
     async (data: JobProps) => {
-      return axios.post("http://localhost:3000/api/job",  data );
+      return axios.post("/api/job",  data );
     },
     {
       onSuccess: (data) => {
@@ -89,7 +89,7 @@ export default function AddJob() {
   }
 
   const { isLoading, error, data } = useQuery("alldata", () =>
-    fetch("http://localhost:3000/api/all").then((res) => res.json())
+    fetch("/api/all").then((res) => res.json())
   );
 
   if (isLoading) return "Loading...";
