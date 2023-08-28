@@ -103,9 +103,14 @@ export default function AddJob() {
   }
 
   const [isAgreed, setIsAgreed] = useState(false);
+  const [isSubmit, setIsSubmit] = useState(false);
 
        const handleCheckboxChange = (event) => {
         setIsAgreed(event.target.checked);
+
+      };
+       const handleSubmitCheckboxChange = (event) => {
+        setIsSubmit(event.target.checked);
 
       };
 
@@ -240,15 +245,16 @@ export default function AddJob() {
       {showStepThree ? <div className="grid grid-cols-1 gap-10 bg-purple-500 p-10 rounded-lg">
   <div>
     <div className="grid grid-cols-2 mb-5 font-bold gap-5">
-       <a className='bg-black text-white p-2 rounded-md flex justify-center w-[60%]' target='_blank' href='http://google.com'>Click here to open the calculations</a>
+       <a className='bg-black text-white p-2 rounded-md flex justify-center w-[60%]' target='_blank' href='https://docs.google.com/spreadsheets/d/1LyZhKMPsYUp0XXYLD6NJJKeR1GgEGBwW'>Click here to open the calculations</a>
     </div>
-    <div className="grid grid-cols-2 mb-5 font-bold gap-5">
+    <div className="grid grid-cols-1 mb-5 font-bold gap-5">
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea vel ullam, voluptate enim architecto aspernatur veniam animi at quam? Animi, odio. Debitis dignissimos beatae repellat! Quisquam mollitia culpa itaque reprehenderit?
       </p>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut illo fugiat eos mollitia aspernatur consectetur suscipit omnis laboriosam excepturi possimus dicta corrupti harum, nam ducimus beatae, unde sapiente provident numquam!</p>
       </div>
     <div className="grid grid-cols-2 mb-5 font-bold gap-5">
+      I Agree that I have done my calculations
     <input
           type="checkbox"
           checked={isAgreed}
@@ -259,7 +265,8 @@ export default function AddJob() {
   </div>
   <div className="flex justify-end gap-2">
   <div className="flex justify-end gap-2">
-            <Button onClick={onStepThreeNextClick}>Next</Button>
+            {isAgreed ? <Button onClick={onStepThreeNextClick}>Next</Button> : "" }
+            
             <Button onClick={onStepThreeBackClick} className="bg-gray-500">
               Back
             </Button>
@@ -271,26 +278,28 @@ export default function AddJob() {
   {showStepFour ? <div className="grid grid-cols-1 gap-10 bg-purple-500 p-10 rounded-lg">
   <div>
     <div className="grid grid-cols-2 mb-5 font-bold gap-5">
-       <a className='bg-black text-white p-2 rounded-md flex justify-center w-[60%]' target='_blank' href='http://google.com'>Click here to open the calculations</a>
+       <a className='bg-black text-white p-2 rounded-md flex justify-center w-[60%]' target='_blank' href='https://docs.google.com/document/d/1vgt-mRRCyEYmGZiQp5EmoEY7-xjBHQSD/edit'>Click here to open the calculations</a>
     </div>
-    <div className="grid grid-cols-2 mb-5 font-bold gap-5">
+    <div className="grid grid-cols-1 mb-5 font-bold gap-5">
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, rem explicabo. Nostrum animi, rem accusamus iste natus beatae mollitia, dolorum debitis, optio amet recusandae delectus magnam temporibus a quia in!
       </p>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut ipsam nemo sunt doloribus. Consequuntur soluta quia adipisci quibusdam assumenda impedit animi repellendus optio non perferendis. Asperiores voluptas voluptatum est aliquam.</p>
       </div>
     <div className="grid grid-cols-2 mb-5 font-bold gap-5">
+      I Agree that I have comlepted my check list 
     <input
           type="checkbox"
-          checked={isAgreed}
-          onChange={handleCheckboxChange}
+          checked={isSubmit}
+          onChange={handleSubmitCheckboxChange}
         />
     </div>
     
   </div>
   <div className="flex justify-end gap-2">
   <div className="flex justify-end gap-2">
-            <Button onClick={submit}>Submit</Button>
+            {isSubmit ? <Button onClick={submit}>Submit</Button> : ""}
+            
             <Button onClick={onStepFourBackClick} className="bg-gray-500">
               Back
             </Button>
