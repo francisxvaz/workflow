@@ -296,7 +296,7 @@ export default function AddJob() {
       {showStepThree ? <div className="grid grid-cols-1 gap-10 bg-purple-500 p-10 rounded-lg">
   <div><div className="text-white text-xs">Step 3/7 calculations</div>
     <div className="grid grid-cols-2 mb-5 mt-5 font-bold gap-5">
-       <a className='bg-black text-white p-2 rounded-md flex justify-center w-[95%]' target='_blank' href='https://docs.google.com/spreadsheets/d/1LyZhKMPsYUp0XXYLD6NJJKeR1GgEGBwW'>Click here to open the calculations</a>
+       <a className='bg-black text-white p-2 rounded-md flex justify-center w-[95%]' target='_blank' href='https://docs.google.com/spreadsheets/d/1FaYf_AIRRDkgbGmhY5LJZBn2TdIbU_Sr/edit#gid=1263088527'>Click here to open the calculations</a>
     </div>
     <div className="grid grid-cols-1 mb-5 font-bold gap-5">
       
@@ -409,8 +409,6 @@ export default function AddJob() {
   <div className="flex justify-end gap-2">
   <div className="flex justify-end gap-2">
   {isValidatorAgreed ? <Button onClick={onStepSixNextClick}>Next</Button> : "" }
-
-            
             <Button onClick={onStepSixBackClick} className="bg-gray-500">
               Back
             </Button>
@@ -424,9 +422,9 @@ export default function AddJob() {
   <div>
   <div className="text-white text-xs">Step 7/7 - invoice and submit</div>
 
-    {/* <div className="grid grid-cols-2 mt-5 mb-5 font-bold gap-5">
-       <a className='bg-black text-white p-2 rounded-md flex justify-center w-[80%]' target='_blank' href='https://docs.google.com/document/d/1vgt-mRRCyEYmGZiQp5EmoEY7-xjBHQSD/edit'>Click here to open the invoice</a>
-    </div> */}
+    <div className="grid grid-cols-2 mt-5 mb-5 font-bold gap-5">
+       <a className='bg-black text-white p-2 rounded-md flex justify-center w-[80%]' target='_blank' href='https://docs.google.com/spreadsheets/d/1s3Y0tTFlA4VD4HsbR4Jr31amahzwgRos/edit'>Click here to open the invoice</a>
+    </div>
     <div className="grid grid-cols-1 mb-5 font-bold gap-5">
       </div>
     <div className="grid grid-cols-2 mb-5 font-bold gap-5">
