@@ -359,7 +359,7 @@ export default function AddJob() {
   <div>
   <div className="text-white text-xs">Step 5/7 - certificate</div>
     <div className="grid grid-cols-2 mb-5 mt-5  font-bold gap-5">
-       <a className='bg-black text-white p-2 rounded-md flex justify-center w-[90%]' target='_blank' href='https://docs.google.com/document/d/1vgt-mRRCyEYmGZiQp5EmoEY7-xjBHQSD/edit'>Click here to open the certificate</a>
+       <a className='bg-black text-white p-2 rounded-md flex justify-center w-[90%]' target='_blank' href='https://docs.google.com/document/d/1mKdYUYXdG0xqPZu2i6LkyG0an-gvIWnT/edit'>Click here to open the certificate</a>
     </div>
     <div className="grid grid-cols-1 mb-5 font-bold gap-5">
       </div>
@@ -391,9 +391,9 @@ export default function AddJob() {
   <div>
   <div className="text-white text-xs">Step 6/7 - validator</div>
 
-    <div className="grid grid-cols-2 mb-5 mt-5 font-bold gap-5">
+    {/* <div className="grid grid-cols-2 mb-5 mt-5 font-bold gap-5">
        <a className='bg-black text-white p-2 rounded-md flex justify-center w-[80%]' target='_blank' href='https://docs.google.com/document/d/1vgt-mRRCyEYmGZiQp5EmoEY7-xjBHQSD/edit'>Click here to open the validator</a>
-    </div>
+    </div> */}
     <div className="grid grid-cols-1 mb-5 font-bold gap-5">
       </div>
     <div className="grid grid-cols-2 mb-5 font-bold gap-5">
@@ -424,9 +424,9 @@ export default function AddJob() {
   <div>
   <div className="text-white text-xs">Step 7/7 - invoice and submit</div>
 
-    <div className="grid grid-cols-2 mt-5 mb-5 font-bold gap-5">
+    {/* <div className="grid grid-cols-2 mt-5 mb-5 font-bold gap-5">
        <a className='bg-black text-white p-2 rounded-md flex justify-center w-[80%]' target='_blank' href='https://docs.google.com/document/d/1vgt-mRRCyEYmGZiQp5EmoEY7-xjBHQSD/edit'>Click here to open the invoice</a>
-    </div>
+    </div> */}
     <div className="grid grid-cols-1 mb-5 font-bold gap-5">
       </div>
     <div className="grid grid-cols-2 mb-5 font-bold gap-5">
