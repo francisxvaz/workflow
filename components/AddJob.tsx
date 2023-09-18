@@ -328,7 +328,7 @@ export default function AddJob() {
   <div className="text-white text-xs">Step 4/7 checklist</div>
     
     <div className="grid grid-cols-2 mb-5 mt-5 font-bold gap-5">
-       <a className='bg-black text-white p-2 rounded-md flex justify-center w-[80%]' target='_blank' href='https://docs.google.com/document/d/1vgt-mRRCyEYmGZiQp5EmoEY7-xjBHQSD/edit'>Click here to open the checklist</a>
+       <a className='bg-black text-white p-2 rounded-md flex justify-center w-[80%]' target='_blank' href='https://docs.google.com/document/d/1mLTc8t3C2dpTVHTWIDBa-ihdlA2t4qON/edit'>Click here to open the checklist</a>
     </div>
     <div className="grid grid-cols-1 mb-5 font-bold gap-5">
       </div>
