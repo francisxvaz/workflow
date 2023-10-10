@@ -60,6 +60,7 @@ export default function ListJobs({ onDelete, onEdit }: { onDelete: Function, onE
       <TableCaption>list of Jobs.</TableCaption>
       <TableHeader>
         <TableRow>
+          <TableHead>Job Name</TableHead>
           <TableHead>Pressure Equipment</TableHead>
           <TableHead>Desing Code</TableHead>
           <TableHead>Engineer</TableHead>
@@ -70,6 +71,9 @@ export default function ListJobs({ onDelete, onEdit }: { onDelete: Function, onE
         {data.map((j) => {
           return (
             <TableRow>
+               <TableCell className="font-bold">
+                {j.jobName}
+              </TableCell>
               <TableCell className="font-bold">
                 {j.pressureEquipment.name}
               </TableCell>

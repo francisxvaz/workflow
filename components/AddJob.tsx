@@ -13,9 +13,11 @@ import { designCodeType, engineerType, pressureEquipmentType } from "..";
 import { Button } from "@/components/ui/button";
 import axios, { AxiosError } from "axios";
 import toast from "react-hot-toast";
+import { Input } from "./ui/input";
 
 
 type JobProps = {
+  jobCode: string;
   pe: string;
   dc: string;
   en: string;
@@ -27,6 +29,7 @@ export default function AddJob() {
   const router = useRouter();
   let commentToastId: string;
 
+  const [jobCode, setJobCode] = useState("");
   const [pe, setpe] = useState("");
   const [dc, setdc] = useState("");
   const [en, seten] = useState("");
@@ -166,7 +169,7 @@ export default function AddJob() {
     commentToastId = toast.loading("Adding your job", {
       id: commentToastId,
     });
-    mutate({ pe, dc, en });
+    mutate({ pe, dc, en, jobCode });
   }
 
   const { isLoading, error, data } = useQuery("alldata", () =>
@@ -186,6 +189,12 @@ export default function AddJob() {
       {showStepOne ? (
         <div className="grid grid-cols-1 gap-10 bg-purple-500 p-10 rounded-lg">
           <div className="text-white text-xs">Step 1/7 select</div>
+          <div>
+            <div className="text-xs font-bold mb-2 text-white">
+              Job Code
+            </div>
+            <Input onChange={(e) => setJobCode(e.target.value)} value={jobCode} />
+          </div>
           <div>
             <div className="text-xs font-bold mb-2 text-white">
               Select Pressure Equipment
