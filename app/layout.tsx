@@ -1,4 +1,5 @@
 'use client'
+
 import { ThemeProvider } from "@/components/theme-provider";
 import { QueryClient, QueryClientProvider } from "react-query";
 import "./globals.css";

@@ -12,7 +12,7 @@ export default function AddEngineer({ onComplete }: { onComplete: Function }) {
 
   const { mutate } = useMutation(
     async (name: string) => {
-      return axios.post("http://localhost:3000/api/en", {
+      return axios.post("/api/en", {
         name,
       });
     },

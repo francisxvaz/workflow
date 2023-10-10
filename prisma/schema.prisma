@@ -36,6 +36,7 @@ model Engineer {
 
 model Job {
   id                  String            @id @default(cuid())
+  jobName             String?       
   createdAt           DateTime          @default(now())
   pressureEquipmentId String
   pressureEquipment   PressureEquipment @relation(fields: [pressureEquipmentId], references: [id])

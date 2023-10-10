@@ -10,7 +10,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
     if (id != null) {
       const result = await prisma.job.findFirst({
         where: { id: id },
-        select: { id: {}, pressureEquipment: {}, designCode: {}, engineer: {} },
+        select: { id: {}, pressureEquipment: {}, designCode: {}, engineer: {}, jobName: {} },
       });
       return new NextResponse(JSON.stringify(result), {
         status: 200,
@@ -18,7 +18,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
     }
 
     const result = await prisma.job.findMany({
-      select: { id: {}, pressureEquipment: {}, designCode: {}, engineer: {} },
+      select: { id: {}, pressureEquipment: {}, designCode: {}, engineer: {}, jobName: {} },
     });
     return new NextResponse(JSON.stringify(result), {
       status: 200,
@@ -30,12 +30,13 @@ export async function GET(req: NextRequest, res: NextResponse) {
 }
 
 export async function POST(request: Request) {
-  const { pe, dc, en } = await request.json();
+  const { pe, dc, en, jobCode } = await request.json();
   const result = await prisma.job.create({
     data: {
       pressureEquipmentId: String(pe),
       designCodeId: String(dc),
       engineerId: String(en),
+      jobName: jobCode
     },
   });
   return NextResponse.json({ result });
