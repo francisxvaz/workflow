@@ -20,6 +20,7 @@ type JobProps = {
   dc: string;
   en: string;
   id: string;
+  jobName: string;
 };
 
 export default function EditJob({jobid}: {jobid:string}) {
@@ -28,6 +29,7 @@ export default function EditJob({jobid}: {jobid:string}) {
   const router = useRouter();
   let commentToastId: string;
 
+  const [jobName, setjobName] = useState("");
   const [pe, setpe] = useState("");
   const [dc, setdc] = useState("");
   const [en, seten] = useState("");
@@ -102,6 +104,7 @@ export default function EditJob({jobid}: {jobid:string}) {
           setpe(data.data.pressureEquipment.id);
           setdc(data.data.designCode.id);
           seten(data.data.engineer.id);
+          setjobName(data.data.jobName)
           console.log(JSON.stringify(data.data))
 
           //setsJob(data?.id);
@@ -125,6 +128,7 @@ export default function EditJob({jobid}: {jobid:string}) {
   const dcss =   data.dcs.filter((dc: designCodeType) => dc.pressureEquipmentId === pe)
    
 
+  
   const peName = data.pes.filter((x) => x.id == pe)[0];
   const dcName = data.dcs.filter((x) => x.id == dc)[0];
   const enName = data.ens.filter((x) => x.id == en)[0];
@@ -135,6 +139,11 @@ export default function EditJob({jobid}: {jobid:string}) {
         <div className="grid grid-cols-1 gap-10 bg-purple-500 p-10 rounded-lg">
           <div>
             <div className="text-xs font-bold mb-2 text-white">
+              Job Code
+            </div>
+            <span className="text-xl font-bold text-white">{jobName}</span>
+
+            <div className="text-xs font-bold mb-2 mt-2 text-white">
               Select Pressure Equipment
             </div>
             <Select onValueChange={handlePEChange} value={pe}>

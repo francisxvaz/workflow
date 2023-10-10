@@ -275,8 +275,9 @@ export default function AddJob() {
       {/* step two */}
       {showStepTwo ? (
         <div className="grid grid-cols-1 gap-10 bg-purple-500 p-10 rounded-lg">
-          <div className="text-white text-xs">Step 2/7 confirm</div>
+          <div className="text-white text-xs">Step 2/7 for jobid :  <span className="font-bold text-xl">{jobCode}</span></div>
           <div>
+            
             <div className="grid grid-cols-2 mb-5 font-bold gap-5">
               <div className="text-white"> Pressure Equipment => </div>
               {peName.name}
@@ -303,7 +304,8 @@ export default function AddJob() {
       )}
 
       {showStepThree ? <div className="grid grid-cols-1 gap-10 bg-purple-500 p-10 rounded-lg">
-  <div><div className="text-white text-xs">Step 3/7 calculations</div>
+  <div>
+  <div className="text-white text-xs">Step 3/7 calculations for jobid:  <span className="font-bold text-xl">{jobCode}</span></div>
     <div className="grid grid-cols-2 mb-5 mt-5 font-bold gap-5">
        <a className='bg-black text-white p-2 rounded-md flex justify-center w-[95%]' target='_blank' href='https://docs.google.com/spreadsheets/d/1FaYf_AIRRDkgbGmhY5LJZBn2TdIbU_Sr/edit#gid=1263088527'>Click here to open the calculations</a>
     </div>
@@ -334,7 +336,7 @@ export default function AddJob() {
 
   {showStepFour ? <div className="grid grid-cols-1 gap-10 bg-purple-500 p-10 rounded-lg">
   <div>
-  <div className="text-white text-xs">Step 4/7 checklist</div>
+  <div className="text-white text-xs">Step 4/7 checklist for jobid:  <span className="font-bold text-xl">{jobCode}</span></div>
     
     <div className="grid grid-cols-2 mb-5 mt-5 font-bold gap-5">
        <a className='bg-black text-white p-2 rounded-md flex justify-center w-[80%]' target='_blank' href='https://docs.google.com/document/d/1mLTc8t3C2dpTVHTWIDBa-ihdlA2t4qON/edit'>Click here to open the checklist</a>
@@ -366,7 +368,7 @@ export default function AddJob() {
   {/* STEP FIVE - CERTIFICATE */}
   {showStepFive ? <div className="grid grid-cols-1 gap-10 bg-purple-500 p-10 rounded-lg">
   <div>
-  <div className="text-white text-xs">Step 5/7 - certificate</div>
+  <div className="text-white text-xs">Step 5/7 - certificate for jobid:  <span className="font-bold text-xl">{jobCode}</span></div>
     <div className="grid grid-cols-2 mb-5 mt-5  font-bold gap-5">
        <a className='bg-black text-white p-2 rounded-md flex justify-center w-[90%]' target='_blank' href='https://docs.google.com/document/d/1mKdYUYXdG0xqPZu2i6LkyG0an-gvIWnT/edit'>Click here to open the certificate</a>
     </div>
@@ -398,7 +400,8 @@ export default function AddJob() {
   {/* STEP SIX - VALIDATOR */}
   {showStepSix ? <div className="grid grid-cols-1 gap-10 bg-purple-500 p-10 rounded-lg">
   <div>
-  <div className="text-white text-xs">Step 6/7 - validator</div>
+  <div className="text-white text-xs">Step 6/7 - validator for jobid:  <span className="font-bold text-xl">{jobCode}</span></div>
+
 
     {/* <div className="grid grid-cols-2 mb-5 mt-5 font-bold gap-5">
        <a className='bg-black text-white p-2 rounded-md flex justify-center w-[80%]' target='_blank' href='https://docs.google.com/document/d/1vgt-mRRCyEYmGZiQp5EmoEY7-xjBHQSD/edit'>Click here to open the validator</a>
@@ -429,7 +432,7 @@ export default function AddJob() {
   {/* STEP SEVEN - INVOICE */}
   {showStepSeven ? <div className="grid grid-cols-1 gap-10 bg-purple-500 p-10 rounded-lg">
   <div>
-  <div className="text-white text-xs">Step 7/7 - invoice and submit</div>
+  <div className="text-white text-xs">Step 7/7 - invoice and submit jobid:  <span className="font-bold text-xl">{jobCode}</span></div>
 
     <div className="grid grid-cols-2 mt-5 mb-5 font-bold gap-5">
        <a className='bg-black text-white p-2 rounded-md flex justify-center w-[80%]' target='_blank' href='https://docs.google.com/spreadsheets/d/1s3Y0tTFlA4VD4HsbR4Jr31amahzwgRos/edit'>Click here to open the invoice</a>
